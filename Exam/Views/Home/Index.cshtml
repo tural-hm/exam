@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DersModal">
+               Ders elave et
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="DersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="@Url.Action("AddDers", "Home")">
+                                <div class="form-group">
+                                    <label for="derskodu">Dərs kodu</label>
+                                    <input type="text" name="Kod" class="form-control" id="derskodu" aria-describedby="emailHelp" placeholder="Dərs kodunu daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="dersadi">Dərsin adı</label>
+                                    <input type="text" name="Name" class="form-control" id="dersadi" aria-describedby="emailHelp" placeholder="Dərsin adını daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="sinif">Sinif</label>
+                                    <input type="text" name="Number" class="form-control" id="sinif" aria-describedby="emailHelp" placeholder="Sinifi daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="teachername">Müəllimin adı</label>
+                                    <input type="text" name="TeacherName" class="form-control" id="teachername" aria-describedby="emailHelp" placeholder="Müəllimin adını daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="teachersurname">Dərs kodu</label>
+                                    <input type="text" name="TeacherSurname" class="form-control" id="teachersurname" aria-describedby="emailHelp" placeholder="Müəllimin soyadını daxil edin">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    <button type="submit" id="derssubmit" class="btn btn-primary">Əlavə et</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#SagirdModal">Sagird əlavə et</button>
+            <!-- Modal -->
+            <div class="modal fade" id="SagirdModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sagird elave olunmasi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="@Url.Action("AddSagird", "Home")">
+                                <div class="form-group">
+                                    <label for="sagirdnomresi">Sagird nomresi</label>
+                                    <input type="text" name="Nomre" class="form-control" id="sagirdnomresi"  placeholder="Sagirdin nomresini daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="sagirdad">Sagirdin  adı</label>
+                                    <input type="text" name="Name" class="form-control" id="sagirdad"  placeholder="Sagirdin adini daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="sagirdsoyad">Sagirdin soyadi</label>
+                                    <input type="text" name="Surname" class="form-control" id="sagirdsoyad"  placeholder="Sagirdin soyadini daxil edin">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="sagirdsinifi">Sinif</label>
+                                    <input type="text" name="Class" class="form-control" id="sagirdsinifi" aria-describedby="emailHelp" placeholder="Sinif">
+
+                                </div>
+                              
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    <button type="submit" id="derssubmit" class="btn btn-primary">Əlavə et</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ImtahanModal">İmtahana qeydiyyat</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="ImtahanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Imtahanin elave olunmasi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" action="@Url.Action("AddImtahan", "Home")">
+                                <div class="form-group">
+                                    <select class="custom-select" name="Kod" id="SelectDers">
+                                        
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <select class="custom-select" name="studentCode" id="SelectSagird">
+                                      
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                   <input name="Date" id="datepicker" width="276" />
+    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="imtahanbal">Imtahan bali</label>
+                                    <input type="text" name="Result" class="form-control" id="imtahanbal" aria-describedby="emailHelp" placeholder="Imtahan bali daxil edin">
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                    <button type="submit" id="imtahansubmit" class="btn btn-primary">Əlavə et</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+</div>
